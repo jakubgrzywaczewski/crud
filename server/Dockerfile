@@ -1,16 +1,13 @@
 FROM node:15-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/server
 
-COPY ./package.json ./
-COPY ./yarn.lock ./
+COPY . .
 
 RUN yarn install
 
 COPY . .
 
-ENV REACT_APP_BASE_URL=http://localhost:5000/api
-
-EXPOSE 3000
+EXPOSE 5000
 
 CMD [ "yarn", "start" ]
