@@ -1,6 +1,7 @@
-import * as express from 'express';
-import * as cors from 'cors';
-import * as helmet from 'helmet';
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import session from 'express-session';
 
 import { json } from 'body-parser';
 import db from './db/index';
@@ -20,7 +21,19 @@ class App {
 
   private initializeMiddlewares() {
     this.app.use(json());
-    this.app.use(cors());
+    this.app.use(
+      cors({
+        origin: 'http://localhost:3000',
+        credentials: true,
+      }),
+    );
+    this.app.use(
+      session({
+        secret: 'secretcode',
+        resave: true,
+        saveUninitialized: true,
+      }),
+    );
     this.app.use(helmet());
   }
 
