@@ -13,8 +13,13 @@ const UserSchema = new Schema({
 const Users = model('Users', UserSchema);
 
 const initializeMongo = (): void => {
-  connect(DATABASE_CONNECTION, { useNewUrlParser: true }, () =>
-    console.log(`===> Connecting database... ${DATABASE_CONNECTION}`),
+  connect(
+    DATABASE_CONNECTION,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+    () => console.log(`===> Connecting database... ${DATABASE_CONNECTION}`),
   );
 
   const db = connection;

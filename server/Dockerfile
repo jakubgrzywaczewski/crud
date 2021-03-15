@@ -5,6 +5,7 @@ WORKDIR /usr/src/server
 COPY . .
 
 RUN yarn install
+RUN yarn build
 
 COPY . .
 
