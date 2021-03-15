@@ -1,9 +1,11 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import session from 'express-session';
+import * as express from 'express';
+import * as cors from 'cors';
+import * as helmet from 'helmet';
+import * as session from 'express-session';
+import * as passport from 'passport';
 
 import { json } from 'body-parser';
+
 import db from './db/index';
 
 class App {
@@ -35,6 +37,8 @@ class App {
       }),
     );
     this.app.use(helmet());
+    this.app.use(passport.initialize());
+    this.app.use(passport.session());
   }
 
   private initializeRoutes(routes) {
