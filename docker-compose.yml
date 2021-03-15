@@ -1,7 +1,8 @@
 version: "3"
 services:
-  react-app:
-    image: react-app
+  client:
+    image: client
+    container_name: app-client
     stdin_open: true
     ports:
       - "3000:3000"
@@ -9,7 +10,8 @@ services:
       - movie-app
       
   server:
-    container_name: server
+    image: server
+    container_name: app-server
     restart: always
     ports:
       - "5000:5000"
@@ -19,6 +21,8 @@ services:
       - movie-app
 
   mongo:
+    container_name: app-db
+    restart: always
     image: mongo:3.6.19-xenial
     ports:
       - "27017:27017"

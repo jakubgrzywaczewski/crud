@@ -20,7 +20,7 @@
     ],
   },
   "include": [
-    "src/**/*.ts", "./jest.config.js",
+    "src/**/*.ts", "./jest.config.js", ".eslintrc.js",
   ],
   "exclude": [
     "node_modules"

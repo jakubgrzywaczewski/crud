@@ -3,17 +3,19 @@ import * as cors from 'cors';
 import * as helmet from 'helmet';
 
 import { json } from 'body-parser';
+import db from './db/index';
 
 class App {
   public app: express.Application;
   public port: number;
 
-  constructor(routes, port: number) {
+  constructor(routes: unknown, port: number) {
     this.app = express();
     this.port = port;
 
     this.initializeMiddlewares();
     this.initializeRoutes(routes);
+    this.initializeDB();
   }
 
   private initializeMiddlewares() {
@@ -26,6 +28,10 @@ class App {
     routes.forEach((route) => {
       this.app.use(route);
     });
+  }
+
+  private initializeDB() {
+    db.initializeMongo();
   }
 
   public listen(): void {
