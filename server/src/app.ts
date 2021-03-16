@@ -57,7 +57,6 @@ class App {
           callbackURL: ROUTES.GOOGLE_CALLBACK,
         },
         function (accessToken: string, refreshToken: string, profile: any, cb: any) {
-          console.log(profile);
           cb(null, profile);
         },
       ),
