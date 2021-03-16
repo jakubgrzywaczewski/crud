@@ -10,12 +10,15 @@ const PrivateRoute: React.FC<{
   path: string;
   exact?: boolean;
 }> = (props) => {
+  const { component, exact, path } = props;
   const userData = useContext(ContextUserData) as IUser;
 
+  console.log(userData);
+
   return userData ? (
-    <Route path={props.path} exact={props.exact} component={props.component} />
+    <Route path={path} exact={exact} component={component} />
   ) : (
-    <Redirect to={ROUTES.LOGIN} />
+    <Redirect to={ROUTES.LOGIN_PAGE} />
   );
 };
 export default PrivateRoute;

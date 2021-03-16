@@ -6,14 +6,16 @@ import LoginPage from './components/loginpage/LoginPage';
 import Navbar from './components/navbar/Navbar';
 import ROUTES from './common/constant';
 import PrivateRoute from './components/privateroute/PrivateRoute';
+import MoviesPage from './components/movies/MoviesPage';
 
 const App: React.FC = () => (
   <>
     <Router>
       <Navbar />
       <Switch>
-        <Route path={ROUTES.ROOT} exact component={HomePage} />
-        <PrivateRoute path={ROUTES.ROOT} component={LoginPage} />
+        <Route path={ROUTES.LOGIN_PAGE} component={LoginPage} />
+        <Route exact path={ROUTES.HOME_PAGE} component={HomePage} />
+        <PrivateRoute path={ROUTES.MOVIES_PAGE} component={MoviesPage} />
       </Switch>
     </Router>
   </>

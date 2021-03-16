@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
   const logout = () =>
     axios.get(ROUTES.LOGOUT_USER, { withCredentials: true }).then((res: AxiosResponse) => {
       if (res.data === 'OK') {
-        window.location.href = ROUTES.ROOT;
+        window.location.href = ROUTES.HOME_PAGE;
       }
     });
 
@@ -21,17 +21,20 @@ const Navbar: React.FC = () => {
     <>
       <StyledNavbar>
         <div>
-          <Link to="/">Homepage</Link>
+          <Link to={ROUTES.HOME_PAGE}>Homepage</Link>
         </div>
-        {userData ? (
+        {!userData ? (
           <div>
-            <Link to="/login">Login</Link>
+            <Link to={ROUTES.LOGIN_PAGE}>Login</Link>
           </div>
         ) : (
           <div onClick={logout} onKeyDown={logout} role="button" tabIndex={0}>
             Logout
           </div>
         )}
+        <div>
+          <Link to={ROUTES.MOVIES_PAGE}>Movies</Link>
+        </div>
       </StyledNavbar>
     </>
   );
