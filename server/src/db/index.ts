@@ -1,16 +1,8 @@
-import { connect, connection, model, Schema } from 'mongoose';
+import { connect, connection } from 'mongoose';
 
 import { DB_CONNECTION_CONFIG } from '../common/env';
 
 const DATABASE_CONNECTION = `mongodb://${DB_CONNECTION_CONFIG}`;
-
-const UserSchema = new Schema({
-  name: String,
-  email: String,
-  favourites: [String],
-});
-
-const Users = model('Users', UserSchema);
 
 const initializeMongo = (): void => {
   connect(
