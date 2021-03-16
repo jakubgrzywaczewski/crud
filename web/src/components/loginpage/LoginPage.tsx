@@ -6,6 +6,7 @@ const LoginPage: React.FC = () => {
       <div>LoginPage</div>
       <div>
         <button type="button">Login with Google</button>
+        <button type="button">Login with Facebook</button>
       </div>
     </>
   );
