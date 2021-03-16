@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
+
 import ROUTES from '../common/constant';
 
 export const ContextUserData = createContext({});

@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 const ProductsController = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    res.send('Hello');
+    res.send('OK');
   } catch (error) {
     next(error);
   }
