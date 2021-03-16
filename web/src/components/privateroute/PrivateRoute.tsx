@@ -13,8 +13,6 @@ const PrivateRoute: React.FC<{
   const { component, exact, path } = props;
   const userData = useContext(ContextUserData) as IUser;
 
-  console.log(userData);
-
   return userData ? (
     <Route path={path} exact={exact} component={component} />
   ) : (

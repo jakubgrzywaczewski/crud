@@ -23,6 +23,11 @@ const Navbar: React.FC = () => {
         <div>
           <Link to={ROUTES.HOME_PAGE}>Homepage</Link>
         </div>
+        {userData ? (
+          <div>
+            <Link to={ROUTES.MOVIES_PAGE}>Movies</Link>
+          </div>
+        ) : null}
         {!userData ? (
           <div>
             <Link to={ROUTES.LOGIN_PAGE}>Login</Link>
@@ -32,9 +37,6 @@ const Navbar: React.FC = () => {
             Logout
           </div>
         )}
-        <div>
-          <Link to={ROUTES.MOVIES_PAGE}>Movies</Link>
-        </div>
       </StyledNavbar>
     </>
   );
