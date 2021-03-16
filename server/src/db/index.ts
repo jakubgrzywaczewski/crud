@@ -1,8 +1,8 @@
 import { connect, connection, model, Schema } from 'mongoose';
 
-import dbConnectionConfig from '../common/index';
+import { DB_CONNECTION_CONFIG } from '../common/env';
 
-const DATABASE_CONNECTION = `mongodb://${dbConnectionConfig}`;
+const DATABASE_CONNECTION = `mongodb://${DB_CONNECTION_CONFIG}`;
 
 const UserSchema = new Schema({
   name: String,
