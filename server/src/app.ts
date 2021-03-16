@@ -7,11 +7,11 @@ import * as passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { json } from 'body-parser';
 
-import db from './db/index';
+import initializeMongo from './db/index';
 import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from './common/env';
 import ROUTES from './common/constants';
-import User from 'db/User';
-import { IUser } from 'types/types';
+import User from './db/User';
+import { IUser } from './types/types';
 
 class App {
   public app: express.Application;
@@ -46,8 +46,10 @@ class App {
     this.app.use(passport.initialize());
     this.app.use(passport.session());
 
-    passport.serializeUser((user, done) => done(null, user));
-    passport.deserializeUser((user, done) => done(null, user));
+    passport.serializeUser((user: IUser, done) => done(null, user._id));
+    passport.deserializeUser((id: string, done) => {
+      User.findById(id, (err: Error, doc: IUser) => done(null, doc));
+    });
   }
 
   private initializeGoogleAuth() {
@@ -59,7 +61,10 @@ class App {
           callbackURL: ROUTES.GOOGLE_CALLBACK,
         },
         function (accessToken: string, refreshToken: string, profile: any, cb: any) {
-          User.findOne({ googleId: profile.id }, async (err, doc: IUser) => {
+          User.findOne({ googleId: profile.id }, async (err: Error, doc: IUser) => {
+            if (err) {
+              return cb(err, null);
+            }
             if (!doc) {
               const newUser = new User({
                 googleId: profile.id,
@@ -68,9 +73,10 @@ class App {
               });
 
               await newUser.save();
+              cb(null, newUser);
             }
+            cb(null, doc);
           });
-          cb(null, profile);
         },
       ),
     );
@@ -83,7 +89,7 @@ class App {
   }
 
   private initializeDB() {
-    db.initializeMongo();
+    initializeMongo();
   }
 
   public listen(): void {

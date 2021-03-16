@@ -9,6 +9,7 @@ import { ContextUserData } from './context/UserContext';
 
 const App: React.FC = () => {
   const userData = useContext(ContextUserData);
+  console.log(userData);
 
   return (
     <>

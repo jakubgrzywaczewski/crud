@@ -15,6 +15,6 @@ const UserSchema = new Schema({
   },
 });
 
-const User = model('Users', UserSchema);
+const User = model('users', UserSchema);
 
 export default User;

@@ -22,7 +22,5 @@ const initializeMongo = (): void => {
   });
 };
 
-export default {
-  initializeMongo,
-  Users,
-};
+export default initializeMongo;
+
