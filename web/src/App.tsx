@@ -5,6 +5,7 @@ import HomePage from './components/homepage/HomePage';
 import LoginPage from './components/loginpage/LoginPage';
 import Navbar from './components/navbar/Navbar';
 import ROUTES from './common/constant';
+import PrivateRoute from './components/privateroute/PrivateRoute';
 
 const App: React.FC = () => (
   <>
@@ -12,7 +13,7 @@ const App: React.FC = () => (
       <Navbar />
       <Switch>
         <Route path={ROUTES.ROOT} exact component={HomePage} />
-        <Route path={ROUTES.LOGIN} component={LoginPage} />
+        <PrivateRoute path={ROUTES.ROOT} component={LoginPage} />
       </Switch>
     </Router>
   </>
