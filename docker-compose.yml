@@ -1,31 +1,29 @@
-version: "3"
+version: '3'
 services:
   client:
     image: client
     container_name: app-client
     stdin_open: true
     ports:
-      - "3000:3000"
+      - '3000:3000'
     networks:
       - movie-app
-      
   server:
     image: server
     container_name: app-server
     restart: always
     ports:
-      - "5000:5000"
+      - '5000:5000'
     depends_on:
       - mongo
     networks:
       - movie-app
-
   mongo:
     container_name: app-db
     restart: always
     image: mongo:3.6.19-xenial
     ports:
-      - "27017:27017"
+      - '27017:27017'
     networks:
       - movie-app
     volumes:
