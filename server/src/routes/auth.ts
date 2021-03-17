@@ -1,15 +1,16 @@
+import ROUTES from 'common/constants';
 import { Router } from 'express';
 import * as passport from 'passport';
 
 const AuthRouter: Router = Router();
 
-AuthRouter.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
+AuthRouter.get(ROUTES.GOOGLE_AUTH, passport.authenticate('google', { scope: ['profile'] }));
 
 AuthRouter.get(
-  '/auth/google/callback',
+  ROUTES.GOOGLE_CALLBACK,
   passport.authenticate('google', { failureRedirect: '/login' }),
   function (req, res) {
-    res.redirect('http://localhost:3000');
+    res.redirect(ROUTES.DOMAIN);
   },
 );
 

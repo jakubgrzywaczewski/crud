@@ -5,7 +5,7 @@
 1. Create `.env` file inside `server/` folder with the following keys:
 
 ```
-DB_CONNECTION=localhost:27017/mongo-test
+DB_CONNECTION=app-db:27017/mongo-test
 PORT=5000
 
 GOOGLE_CLIENT_ID=
@@ -21,9 +21,14 @@ OMDB_API_KEY=
 
 1. Create Docker images:
 
-  - `docker build -t client ./client`
+  - `docker build -t client ./web`
   - `docker build -t server ./server`
 
 2. Use Docker compose to set up environment:
 
   - `docker-compose up -d`
+
+## Using
+
+- Front-end is exposed on http://localhost:3000
+- Backend-end is exposed on http://localhost:5000
