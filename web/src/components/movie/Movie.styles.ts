@@ -9,4 +9,21 @@ const MovieWrapper = styled.div`
   flex-direction: column;
 `;
 
-export default MovieWrapper;
+const FavouriteButton = styled.button.attrs((props) => ({
+  type: 'button',
+}))`
+  border: 1px solid #61b50e;
+  background-color: #649633;
+  cursor: pointer;
+  height: 50px;
+  width: 250px;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 16px;
+
+  &:hover {
+    background-color: #61b50e;
+  }
+`;
+
+export { FavouriteButton, MovieWrapper };

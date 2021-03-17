@@ -1,17 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import axios, { AxiosResponse } from 'axios';
-import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { debounce } from 'lodash';
 
 import ROUTES from '../../common/constant';
 import Movie from '../movie/Movie';
-import { Button, Form, Input } from './Search.styles';
+import { Button, Input, SerachWrapper } from './Search.styles';
 
 const Search: React.FC = () => {
   const [movieData, setMovieData] = useState<any>();
   const [input, setInput] = useState<string>('');
 
-  const formRef = useRef<HTMLFormElement>(null);
   const inputFocus = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -28,18 +27,9 @@ const Search: React.FC = () => {
     debouncedFetch();
   }, [input]);
 
-  const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setInput('');
-  };
   return (
     <>
-      <Form
-        onClick={() => inputFocus?.current?.focus()}
-        onFocus={() => inputFocus?.current?.focus()}
-        onSubmit={onFormSubmit}
-        ref={formRef}
-      >
+      <SerachWrapper>
         <Button type="submit">Search</Button>
         <Input
           onChange={(e: ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
@@ -47,7 +37,7 @@ const Search: React.FC = () => {
           value={input}
           placeholder="Search for a movie..."
         />
-      </Form>
+      </SerachWrapper>
 
       <Movie {...movieData} />
     </>

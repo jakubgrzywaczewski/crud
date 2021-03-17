@@ -6,7 +6,7 @@ import LoginPage from './components/loginpage/LoginPage';
 import Navbar from './components/navbar/Navbar';
 import ROUTES from './common/constant';
 import PrivateRoute from './components/privateroute/PrivateRoute';
-import MoviesPage from './components/movies/MoviesPage';
+import MoviesPage from './components/moviespage/MoviesPage';
 
 const App: React.FC = () => (
   <>
