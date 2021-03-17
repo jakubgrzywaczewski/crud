@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import axios, { AxiosResponse } from 'axios';
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
+import { debounce } from 'lodash';
 
 import ROUTES from '../../common/constant';
 import Movie from '../movie/Movie';
@@ -14,17 +15,17 @@ const Search: React.FC = () => {
   const inputFocus = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    async function fetchAPI() {
+    const debouncedFetch = debounce(async () => {
       axios
         .get(`${ROUTES.MOVIES_TITLE_API}${input}`, { withCredentials: true })
         .then((res: AxiosResponse) => {
           if (res.data) {
-            console.log(res.data);
             setMovieData(res.data);
           }
         });
-    }
-    fetchAPI();
+    }, 1000);
+
+    debouncedFetch();
   }, [input]);
 
   const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {

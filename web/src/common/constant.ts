@@ -7,6 +7,7 @@ const ROUTES = {
   HOME_PAGE: '/',
   MOVIES_PAGE: '/movies',
   MOVIES_TITLE_API: 'http://localhost:5000/movies/search?title=',
+  MOVIES_FAVOURITE_API: 'http://localhost:5000/movies/add:id',
 };
 
 export default ROUTES;
