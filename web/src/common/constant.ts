@@ -6,6 +6,7 @@ const ROUTES = {
   LOGIN_PAGE: '/login',
   HOME_PAGE: '/',
   MOVIES_PAGE: '/movies',
+  MOVIES_TITLE_API: 'http://localhost:5000/movies/search?title=',
 };
 
 export default ROUTES;
