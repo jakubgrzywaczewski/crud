@@ -1,6 +1,7 @@
-import ROUTES from 'common/constants';
 import { Router } from 'express';
 import * as passport from 'passport';
+
+import ROUTES from '../common/constants';
 
 const AuthRouter: Router = Router();
 
