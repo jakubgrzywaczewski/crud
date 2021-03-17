@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ROUTES from '../../common/constant';
+import { LoginButton, LoginPageWrapper } from './LoginPage.styles';
 
 const LoginPage: React.FC = () => {
   const handleGoogleLogin = () => {
@@ -8,15 +9,13 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <>
-      <div>LoginPage</div>
+    <LoginPageWrapper>
       <div>
-        <button type="button" onClick={handleGoogleLogin}>
+        <LoginButton type="button" onClick={handleGoogleLogin}>
           Login with Google
-        </button>
-        <button type="button">Login with Facebook</button>
+        </LoginButton>
       </div>
-    </>
+    </LoginPageWrapper>
   );
 };
 

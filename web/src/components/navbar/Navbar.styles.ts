@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 const StyledNavbar = styled.div`
   display: flex;
-  height: 2em;
+  height: 3rem;
   width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
 
   div {
     display: flex;
