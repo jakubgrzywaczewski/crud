@@ -17,7 +17,7 @@ const MoviesPage: React.FC = () => {
       <div>
         Favourites:
         <br />
-        <Favourites movieIds={userData?.favourites} />
+        <Favourites movieIds={userData?.favourites} user={userData?.googleId} />
       </div>
     </PageWrapper>
   );
