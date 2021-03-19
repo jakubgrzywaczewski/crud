@@ -17,7 +17,7 @@ const getFavorites = async (ids: string[]): Promise<IResponse[]> => {
       const {
         data: { Title, imdbRating },
       } = await axios.get(query);
-      const data = Object.assign({}, { title: Title, rating: imdbRating });
+      const data = Object.assign({}, { title: Title, rating: imdbRating, id: movieId });
 
       return result.push(data);
     }),
