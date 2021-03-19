@@ -16,14 +16,14 @@ OMDB_API_KEY=
 
 ### Note:
 
-- Get Google Client keys from console.developers.google.com
+- Get Google Client keys from https://console.developers.google.com
 - Get OMDB_API_KEY from http://www.omdbapi.com/apikey.aspx
 
 ## Instalation
 
 1. Create Docker images:
 
-- `docker build -t client ./web`
+- `docker build -t client ./client`
 - `docker build -t server ./server`
 
 2. Use Docker compose to set up environment:
