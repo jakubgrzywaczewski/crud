@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { ContextUserData } from '../../context/UserContext';
 import { IUser } from '../../types/types';
+import Favourites from '../favourites/Favourites';
 import Search from '../search/Search';
 import PageWrapper from './MoviesPage.styles';
 
@@ -16,9 +17,7 @@ const MoviesPage: React.FC = () => {
       <div>
         Favourites:
         <br />
-        {userData?.favourites?.map((favourite) => (
-          <p key={userData?.googleId}>{favourite}</p>
-        ))}
+        <Favourites movieIds={userData?.favourites} />
       </div>
     </PageWrapper>
   );
