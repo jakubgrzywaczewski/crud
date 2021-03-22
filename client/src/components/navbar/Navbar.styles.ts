@@ -7,27 +7,38 @@ const StyledNavbar = styled.div`
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.4);
 
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    font-weight: bold;
-    margin-right: 15px;
-    cursor: pointer;
-    background-color: #ccc;
+  a {
+    text-decoration: none;
+    color: inherit;
 
-    &:hover {
-      a {
-        text-decoration: underline;
-      }
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 1.75rem;
+      font-weight: bold;
+      margin-right: 15px;
+      cursor: pointer;
+      background-color: #ccc;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    &:hover {
+      text-decoration: underline;
     }
   }
 `;
 
-export default StyledNavbar;
+const LogoutButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 1.75rem;
+  font-weight: bold;
+  margin-right: 15px;
+  cursor: pointer;
+  background-color: #ccc;
+`;
+
+export { LogoutButton, StyledNavbar };

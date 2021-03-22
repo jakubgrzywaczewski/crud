@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import { Link } from 'react-router-dom';
 
 import ROUTES from '../../common/constant';
-import StyledNavbar from './Navbar.styles';
+import { LogoutButton, StyledNavbar } from './Navbar.styles';
 import { UserContextType } from '../../types/types';
 import { ContextUserData } from '../../context/UserContext';
 
@@ -20,22 +20,23 @@ const Navbar: React.FC = () => {
   return (
     <>
       <StyledNavbar>
-        <div>
-          <Link to={ROUTES.HOME_PAGE}>Homepage</Link>
-        </div>
+        <Link to={ROUTES.HOME_PAGE}>
+          <div>Homepage</div>
+        </Link>
+
         {userData.username ? (
-          <div>
-            <Link to={ROUTES.MOVIES_PAGE}>Movies</Link>
-          </div>
+          <Link to={ROUTES.MOVIES_PAGE}>
+            <div>Movies</div>
+          </Link>
         ) : null}
         {!userData.username ? (
-          <div>
-            <Link to={ROUTES.LOGIN_PAGE}>Login</Link>
-          </div>
+          <Link to={ROUTES.LOGIN_PAGE}>
+            <div>Login</div>
+          </Link>
         ) : (
-          <div onClick={logout} onKeyDown={logout} role="button" tabIndex={0}>
+          <LogoutButton onClick={logout} onKeyDown={logout} role="button" tabIndex={0}>
             Logout
-          </div>
+          </LogoutButton>
         )}
       </StyledNavbar>
     </>
