@@ -9,7 +9,7 @@ const MovieWrapper = styled.div`
   flex-direction: column;
 `;
 
-const FavouriteButton = styled.button.attrs((props) => ({
+const FavouriteButton = styled.button.attrs(() => ({
   type: 'button',
 }))`
   border: 1px solid #61b50e;

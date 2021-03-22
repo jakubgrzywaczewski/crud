@@ -15,7 +15,7 @@ type Movie = {
   id: string;
 };
 
-const Favourites = (props: IProps) => {
+const Favourites = (props: IProps): JSX.Element => {
   const [favourites, setFavourites] = useState<Movie[]>([]);
   const { movieIds, user } = props;
   const ids = movieIds?.filter((id) => id !== null);
