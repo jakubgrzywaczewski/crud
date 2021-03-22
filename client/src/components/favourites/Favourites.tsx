@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
 import ROUTES from '../../common/constant';
+import { FavouritesWrapper, MovieCard } from './Favourites.styles';
 
 interface IProps {
   movieIds: string[];
@@ -17,7 +18,7 @@ type Movie = {
 const Favourites = (props: IProps) => {
   const [favourites, setFavourites] = useState<Movie[]>([]);
   const { movieIds, user } = props;
-  const ids = movieIds.filter((id) => id !== null);
+  const ids = movieIds?.filter((id) => id !== null);
 
   useEffect(() => {
     axios
@@ -34,13 +35,13 @@ const Favourites = (props: IProps) => {
   }, [movieIds]);
 
   return (
-    <div>
+    <FavouritesWrapper>
       {favourites?.map((movie) => (
-        <p key={movie.id}>
+        <MovieCard key={movie.id}>
           {movie.title} {movie.rating}
-        </p>
+        </MovieCard>
       ))}
-    </div>
+    </FavouritesWrapper>
   );
 };
 
