@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const Label = styled.div`
   line-height: 1;
   pointer-events: auto;
-  cursor: pointer;
   background-color: #6b6969;
   border: none;
   height: 2rem;
@@ -13,10 +12,6 @@ const Button = styled.button`
   outline: none;
   color: white;
   margin-right: 5px;
-
-  &:hover {
-    background-color: #000;
-  }
 `;
 
 const SerachWrapper = styled.div`
@@ -50,4 +45,4 @@ const Input = styled.input`
   }
 `;
 
-export { Button, Input, SerachWrapper };
+export { Label, Input, SerachWrapper };

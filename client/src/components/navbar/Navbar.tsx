@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 import ROUTES from '../../common/constant';
 import StyledNavbar from './Navbar.styles';
-import { IUser } from '../../types/types';
+import { UserContextType } from '../../types/types';
 import { ContextUserData } from '../../context/UserContext';
 
 const Navbar: React.FC = () => {
-  const userData = useContext(ContextUserData) as IUser;
+  const { userData } = useContext(ContextUserData) as UserContextType;
 
   const logout = () =>
     axios.get(ROUTES.LOGOUT_USER, { withCredentials: true }).then((res: AxiosResponse) => {
@@ -23,12 +23,12 @@ const Navbar: React.FC = () => {
         <div>
           <Link to={ROUTES.HOME_PAGE}>Homepage</Link>
         </div>
-        {userData ? (
+        {userData.username ? (
           <div>
             <Link to={ROUTES.MOVIES_PAGE}>Movies</Link>
           </div>
         ) : null}
-        {!userData ? (
+        {!userData.username ? (
           <div>
             <Link to={ROUTES.LOGIN_PAGE}>Login</Link>
           </div>

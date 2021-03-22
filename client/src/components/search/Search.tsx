@@ -5,7 +5,7 @@ import { debounce } from 'lodash';
 
 import ROUTES from '../../common/constant';
 import Movie from '../movie/Movie';
-import { Button, Input, SerachWrapper } from './Search.styles';
+import { Input, Label, SerachWrapper } from './Search.styles';
 
 const Search: React.FC = () => {
   const [movieData, setMovieData] = useState<any>();
@@ -30,7 +30,7 @@ const Search: React.FC = () => {
   return (
     <>
       <SerachWrapper>
-        <Button type="submit">Search</Button>
+        <Label>Search</Label>
         <Input
           onChange={(e: ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
           ref={inputFocus}

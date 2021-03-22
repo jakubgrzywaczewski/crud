@@ -7,7 +7,8 @@ import Search from '../search/Search';
 import PageWrapper from './MoviesPage.styles';
 
 const MoviesPage: React.FC = () => {
-  const userData = useContext(ContextUserData) as IUser;
+  const { userData } = useContext(ContextUserData);
+  const { favourites, googleId } = userData as IUser;
 
   return (
     <PageWrapper>
@@ -17,7 +18,7 @@ const MoviesPage: React.FC = () => {
       <div>
         Favourites:
         <br />
-        <Favourites movieIds={userData?.favourites} user={userData?.googleId} />
+        <Favourites movieIds={favourites} user={googleId} />
       </div>
     </PageWrapper>
   );

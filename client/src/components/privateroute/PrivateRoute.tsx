@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import ROUTES from '../../common/constant';
 
 import { ContextUserData } from '../../context/UserContext';
-import { IUser } from '../../types/types';
+import { UserContextType } from '../../types/types';
 
 const PrivateRoute: React.FC<{
   component: React.FC;
@@ -11,9 +11,9 @@ const PrivateRoute: React.FC<{
   exact?: boolean;
 }> = (props) => {
   const { component, exact, path } = props;
-  const userData = useContext(ContextUserData) as IUser;
+  const { userData } = useContext(ContextUserData) as UserContextType;
 
-  return userData ? (
+  return userData.username ? (
     <Route path={path} exact={exact} component={component} />
   ) : (
     <Redirect to={ROUTES.LOGIN_PAGE} />

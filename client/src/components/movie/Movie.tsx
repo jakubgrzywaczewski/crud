@@ -1,22 +1,30 @@
-import axios from 'axios';
-import React from 'react';
+import axios, { AxiosResponse } from 'axios';
+import React, { useContext } from 'react';
 
-import { IMovie } from '../../types/types';
+import { IMovie, IUser } from '../../types/types';
 import Poster from '../poster/Poster';
 import { FavouriteButton, MovieWrapper } from './Movie.styles';
 import ROUTES from '../../common/constant';
+import { ContextUserData } from '../../context/UserContext';
 
 const Movie: React.FC<IMovie> = (props: IMovie) => {
   const { Title, Director, Released, imdbID, Poster: url } = props;
+  const { updateUserData } = useContext(ContextUserData);
 
   const addToFavorites = async () => {
-    axios.post(
-      ROUTES.MOVIES_FAVOURITE_API,
-      {
-        id: imdbID,
-      },
-      { withCredentials: true },
-    );
+    axios
+      .post(
+        ROUTES.MOVIES_FAVOURITE_API,
+        {
+          id: imdbID,
+        },
+        { withCredentials: true },
+      )
+      .then((res: AxiosResponse<IUser>) => {
+        if (res.data) {
+          updateUserData(imdbID);
+        }
+      });
   };
 
   return imdbID ? (

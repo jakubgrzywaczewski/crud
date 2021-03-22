@@ -1,3 +1,8 @@
+export type UserContextType = {
+  userData: IUser;
+  updateUserData: (id: string) => void;
+};
+
 export interface IUser {
   __v: number;
   _id: string;
