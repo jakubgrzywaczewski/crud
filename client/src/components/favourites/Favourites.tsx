@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
-import ROUTES from '../../common/constant';
+import { ROUTES } from '../../common/constant';
 import { FavouritesWrapper, MovieCard } from './Favourites.styles';
 
 interface IProps {

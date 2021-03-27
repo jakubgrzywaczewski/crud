@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './components/homepage/HomePage';
 import LoginPage from './components/loginpage/LoginPage';
 import Navbar from './components/navbar/Navbar';
-import ROUTES from './common/constant';
+import { ROUTES } from './common/constant';
 import PrivateRoute from './components/privateroute/PrivateRoute';
 import MoviesPage from './components/moviespage/MoviesPage';
 

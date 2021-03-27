@@ -11,4 +11,8 @@ const ROUTES = {
   MOVIES_GET_FAVOURITES_API: 'http://localhost:5000/movies/get:ids',
 };
 
-export default ROUTES;
+const EXTERNAL_URLS = {
+  UNKNOWN_URL: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg',
+};
+
+export { ROUTES, EXTERNAL_URLS };

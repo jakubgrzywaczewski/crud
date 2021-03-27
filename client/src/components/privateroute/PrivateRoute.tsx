@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import ROUTES from '../../common/constant';
+import { ROUTES } from '../../common/constant';
 
 import { ContextUserData } from '../../context/UserContext';
 import { UserContextType } from '../../types/types';

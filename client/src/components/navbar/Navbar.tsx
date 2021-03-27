@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { Link } from 'react-router-dom';
 
-import ROUTES from '../../common/constant';
+import { ROUTES } from '../../common/constant';
 import { LogoutButton, StyledNavbar } from './Navbar.styles';
 import { UserContextType } from '../../types/types';
 import { ContextUserData } from '../../context/UserContext';

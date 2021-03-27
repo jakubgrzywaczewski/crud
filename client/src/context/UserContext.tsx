@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
-import ROUTES from '../common/constant';
+import { ROUTES } from '../common/constant';
 import { IUser, UserContextType } from '../types/types';
 
 const contextDefaultValues: UserContextType = {

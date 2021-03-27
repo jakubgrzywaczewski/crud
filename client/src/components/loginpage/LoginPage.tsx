@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ROUTES from '../../common/constant';
+import { ROUTES } from '../../common/constant';
 import { LoginButton, LoginPageWrapper } from './LoginPage.styles';
 
 const LoginPage: React.FC = () => {
