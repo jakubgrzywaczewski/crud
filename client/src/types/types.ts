@@ -12,6 +12,13 @@ export interface IUser {
 }
 
 export interface IMovie {
+  Title?: string;
+  Director?: string;
+  Released?: string;
+  imdbID?: string;
+  Poster?: string;
+}
+export interface IMovieResponse {
   Actors: string;
   Awards: string;
   Country: string;

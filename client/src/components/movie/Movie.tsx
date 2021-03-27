@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { IMovie, IUser } from '../../types/types';
 import Poster from '../poster/Poster';
 import { FavouriteButton, MovieWrapper } from './Movie.styles';
-import ROUTES from '../../common/constant';
+import { ROUTES, EXTERNAL_URLS } from '../../common/constant';
 import { ContextUserData } from '../../context/UserContext';
 
 const Movie: React.FC<IMovie> = (props: IMovie) => {
@@ -21,7 +21,7 @@ const Movie: React.FC<IMovie> = (props: IMovie) => {
         { withCredentials: true },
       )
       .then((res: AxiosResponse<IUser>) => {
-        if (res.data) {
+        if (res.data && imdbID) {
           updateUserData(imdbID);
         }
       });
@@ -29,7 +29,7 @@ const Movie: React.FC<IMovie> = (props: IMovie) => {
 
   return imdbID ? (
     <MovieWrapper>
-      <Poster url={url} />
+      <Poster url={url || EXTERNAL_URLS.UNKNOWN_URL} />
       <p>{Title}</p>
       <p>Director: {Director}</p>
       <p>Released: {Released}</p>
