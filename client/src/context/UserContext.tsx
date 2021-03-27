@@ -9,9 +9,13 @@ const contextDefaultValues: UserContextType = {
   updateUserData: () => {},
 };
 
+interface IProps {
+  children: JSX.Element | JSX.Element[];
+}
+
 export const ContextUserData = createContext<UserContextType>(contextDefaultValues);
 
-function UserContext(props: any) {
+function UserContext(props: IProps): JSX.Element {
   const { children } = props;
   const [userData, setUserData] = useState<IUser>(contextDefaultValues.userData);
 
