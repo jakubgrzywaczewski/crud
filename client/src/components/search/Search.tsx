@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import axios, { AxiosResponse } from 'axios';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { debounce } from 'lodash';

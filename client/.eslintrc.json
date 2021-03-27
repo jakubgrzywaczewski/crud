@@ -45,6 +45,12 @@
         "extensions": [".ts", ".tsx"]
       }
     ],
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "custom": "ignore"
+      }
+    ],
     "indent": "off",
     "@typescript-eslint/indent": "off",
     "react/jsx-indent": "off",
